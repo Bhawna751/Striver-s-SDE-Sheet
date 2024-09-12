@@ -2,7 +2,7 @@
 - [Max Product Subarray](./maxProductSubarray.md)
 - [Longest Increasing Subsequence](./LIS.md)
 - [Longest Common Subsequence](./LCS.md)
-- 0-1 Knapsack
+- [0-1 Knapsack](./0-1Knapsack.md)
 - Edit Distance
 - Maximum sum increasing subsequence
 - Matrix Chain Multiplication
