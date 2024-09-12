@@ -1,1 +1,16 @@
-
+## Questions:
+- [Max Product Subarray](./maxProductSubarray.md)
+- Longest Increasing Subsequence
+- Longest Common Subsequence
+- 0-1 Knapsack
+- Edit Distance
+- Maximum sum increasing subsequence
+- Matrix Chain Multiplication
+- Minimum sum path in the matrix, (count paths and similar type do, also backtrack to find the Minimum path)
+- Coin change
+- Subset Sum
+- Rod Cutting
+- Egg Dropping
+- Word Break
+- Palindrome Partitioning (MCM Variation)
+- Maximum profit in Job scheduling
