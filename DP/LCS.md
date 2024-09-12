@@ -37,6 +37,11 @@ public:
     //     vector<vector<int>> dp(n,vector<int>(m,-1));
     //     return solve(text1,text2,n-1,m-1,dp);
     // }
+//Time Complexity: O(N*M)
+//Reason: There are N*M states therefore at max ‘N*M’ new problems will be solved.
+//Space Complexity: O(N*M) + O(N+M)
+//Reason: We are using an auxiliary recursion stack space(O(N+M)) (see the recursive tree, in the worst case, we will go till N+M calls at a time) and a 2D array ( O(N*M)).
+
 //  TABULATION: 
 //     int longestCommonSubsequence(string text1, string text2){
 //         int n=text1.size(), m=text2.size();
@@ -56,6 +61,11 @@ public:
 //         return dp[n][m];
 //     }
 // };
+//Time Complexity: O(N*M)
+//Reason: There are two nested loops
+//Space Complexity: O(N*M)
+//Reason: We are using an external array of size ‘N*M)’. Stack Space is eliminated.
+
     int longestCommonSubsequence(string text1, string text2){
         int n=text1.size(), m=text2.size();
         vector<int> prev(m+1,0), cur(m+1,0);
@@ -70,3 +80,7 @@ public:
     }
 };
 ```
+Time Complexity: O(N*M)
+ - Reason: There are two nested loops.
+Space Complexity: O(M)
+ - Reason: external array of size ‘M+1’ to store only two rows.
