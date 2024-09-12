@@ -1,6 +1,6 @@
 ## Questions:
 - [Max Product Subarray](./maxProductSubarray.md)
-- Longest Increasing Subsequence
+- [Longest Increasing Subsequence](./LIS.md)
 - Longest Common Subsequence
 - 0-1 Knapsack
 - Edit Distance
