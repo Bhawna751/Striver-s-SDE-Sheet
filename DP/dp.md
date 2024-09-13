@@ -5,7 +5,7 @@
 - [0-1 Knapsack](./0-1Knapsack.md)
 - [Edit Distance](./editDistance.md)
 - Maximum sum increasing subsequence
-- Matrix Chain Multiplication
+- [Matrix Chain Multiplication](./mcm.md)
 - Minimum sum path in the matrix, (count paths and similar type do, also backtrack to find the Minimum path)
 - Coin change
 - Subset Sum
