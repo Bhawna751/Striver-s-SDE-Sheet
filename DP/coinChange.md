@@ -59,6 +59,16 @@ Space Complexity: O(N*Target)
   <summary>TABULATION</summary>
   <br>
   
+ **Approach :**
+- array of size [n][target+1], initialize it as 0.
+- Base Cases: for `'ind'` == `0`, if `T % arr[0] == 0`, initialize the dp array to `1` else initialize it to `0`.
+- Iterative Computation Using Loops: first row (`ind = 0`) in the base case, so `ind` variable will move from `1` to `n-1`, whereas `target` variable will move from `0` to `T`(target). Initialize two nested for loops to traverse the dp array ,set the value of each cell in the 2D dp array. Instead of recursive calls, use the dp array itself to find the values of intermediate calculations.
+- Returning the answer: At last dp[n-1][target] will hold the solution after the completion of whole process, as we are doing the calculations in bottom-up manner.
+
+```cpp
+
+```
+ 
 </details>
 <details>
   <summary>SPACE OPTIMIZATION</summary>
