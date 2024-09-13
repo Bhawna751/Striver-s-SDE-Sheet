@@ -39,7 +39,6 @@ Time Complexity: O(M*N)
 Space Complexity:O((N-1)+(M-1)) + O(M*N)
 </details>
 
-Solution:
 <details>
   <summary>TABULATION</summary>
   <br>
