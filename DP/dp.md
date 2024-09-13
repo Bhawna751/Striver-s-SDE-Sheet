@@ -7,7 +7,7 @@
 - Maximum sum increasing subsequence
 - [Matrix Chain Multiplication](./mcm.md)
 - [Minimum sum path in the matrix, (count paths and similar type do, also backtrack to find the Minimum path)](./minPathSum.md)
-- [Coin change](./coinChange.md)
+- [Coin Change II](./coinChange.md)
 - Subset Sum
 - Rod Cutting
 - Egg Dropping
