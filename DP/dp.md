@@ -11,6 +11,6 @@
 - [Subset Sum](./subsetSum.md)
 - [Rod Cutting](./rodCutting.md)
 - [Egg Dropping](./eggDropping.md)
-- Word Break
+- [Word Break](./wordBreak.md)
 - Palindrome Partitioning (MCM Variation)
 - Maximum profit in Job scheduling
