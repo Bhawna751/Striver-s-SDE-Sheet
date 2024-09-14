@@ -24,13 +24,13 @@ Input: s = "a good   example"
 Output: "example good a"
 ````
 **Solution:**
+- Reverse the entire string
+- Reverse Individual words while handling the extra spaces
+- Removing the extra spaces and returning
 <details>
   <summary>Code:</summary>
   <br>
   
-- Reverse the entire string
-- Reverse Individual words while handling the extra spaces
-- Removing the extra spaces and returning
   
 ```cpp
 class Solution {
