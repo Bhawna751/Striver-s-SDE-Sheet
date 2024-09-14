@@ -8,7 +8,7 @@
 - [Matrix Chain Multiplication](./mcm.md)
 - [Minimum sum path in the matrix, (count paths and similar type do, also backtrack to find the Minimum path)](./minPathSum.md)
 - [Coin Change II](./coinChange.md)
-- Subset Sum
+- [Subset Sum](./subsetSum.md)
 - Rod Cutting
 - Egg Dropping
 - Word Break
