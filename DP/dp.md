@@ -10,7 +10,7 @@
 - [Coin Change II](./coinChange.md)
 - [Subset Sum](./subsetSum.md)
 - [Rod Cutting](./rodCutting.md)
-- Egg Dropping
+- [Egg Dropping](./eggDropping.md)
 - Word Break
 - Palindrome Partitioning (MCM Variation)
 - Maximum profit in Job scheduling
