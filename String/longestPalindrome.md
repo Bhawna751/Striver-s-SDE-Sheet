@@ -17,7 +17,7 @@ Output: "bb"
 
 <details>
   <summary>Brute Force:</summary>
-  <br>
+
 
 Algorithm :
 - Pick a `starting` index for the `current` substring which is every index from **0 to n-2.**
