@@ -66,12 +66,62 @@ Space Complexity: O(N*Target)
 - Returning the answer: At last dp[n-1][target] will hold the solution after the completion of whole process, as we are doing the calculations in bottom-up manner.
 
 ```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        int n = coins.size();
+        vector<vector<int>> dp(n,vector<int>(amount+1,0));
 
+        for(int i=0;i<=amount;i++){
+            if(i % coins[0] == 0) dp[0][i] = 1;
+        }
+
+        for(int i = 1; i<n;i++){
+            for(int j  = 0;j<=amount;j++){
+                int notpick = dp[i-1][j];
+                int pick = 0;
+                if(coins[i] <= amount) pick = dp[i][j - coins[i]];
+                dp[i][j] = pick + notpick;
+            }
+        }
+        return dp[n-1][amount];
+    }
+};
 ```
  
 </details>
 <details>
   <summary>SPACE OPTIMIZATION</summary>
   <br>
-  
+ 
+ **Approach**
+-  two arrays `prev` and `cur`. Initialize the `prev` array for the **first element** of the array.
+- Fill the `cur` array for present row using nested loops and the same logic discussed in tabulation. If the current element is less than or equal to the target, calculate `take`.
+- store the sum of `take` and `not take` in the `cur` array.
+- Update `prev` with `cur`, get the minimum number of coins needed for the target sum stored in `prev[Target]`.
+```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        int n = coins.size();
+        vector<int> prev(amount+1,0);
+
+        for(int i=0 ; i<=amount ; i++){
+            if(i % coins[0] == 0) prev[i] = 1;
+        }
+
+        for(int i = 1; i<n;i++){
+            vector<int> cur(amount+1,0);
+            for(int j  = 0;j<=amount;j++){
+                int notpick = prev[j];
+                int pick = 0;
+                if(coins[i] <= amount) pick = cur[j - coins[i]];
+                cur[j] = pick + notpick;
+            }
+            prev=cur;
+        }
+        return prev[amount];
+    }
+}; 
+```
 </details>
