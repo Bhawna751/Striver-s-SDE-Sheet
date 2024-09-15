@@ -3,6 +3,6 @@
 - [Longest Palindrome in a string](./longestPalindrome.md)
 - [Roman Number to Integer](./romanToInteger.md)
 - [Integer to Roman](./integerToRoman.md)
-- Implement ATOI/STRSTR
+- [Implement ATOI/STRSTR](./atoi.md)
 - Longest Common Prefix
 - Rabin Karp
