@@ -7,3 +7,4 @@
 - [Find the Index of the First Occurrence in a String](./strSTR.md)
 - [Longest Common Prefix](./longestCommonPrefix.md)
 - Rabin Karp
+- [Check for Anagrams](./anagrams.md)
