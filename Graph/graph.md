@@ -1,6 +1,8 @@
 # Questions:
 
-- [Clone a graph](./cloneAGraph.md) 
+- [Clone a graph](./cloneAGraph.md)
+- [DFS](./dfs.md)
+- [BFS](./bfs.md)
 - Detect A cycle in Undirected Graph using BFS
 - Detect A cycle in Undirected Graph using DFS
 - Detect A cycle in a Directed Graph using DFS
