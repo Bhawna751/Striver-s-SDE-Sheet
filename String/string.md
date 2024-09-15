@@ -5,5 +5,5 @@
 - [Integer to Roman](./integerToRoman.md)
 - [Implement ATOI](./atoi.md)
 - [Find the Index of the First Occurrence in a String](./strSTR.md)
-- Longest Common Prefix
+- [Longest Common Prefix](./longestCommonPrefix.md)
 - Rabin Karp
