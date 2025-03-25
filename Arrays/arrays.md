@@ -47,4 +47,49 @@
     </details>
     Time Complexity: O(n*m) + O(n*m)
     Space Complexity: O(n+m)
+
+    -----
+    **Optimal:**
+
+    - traverse each `cell[i][j]` and for each `i` and `j`, mark the cells in first row and col as `0`.
+      ```cpp
+        for(int i = 0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(matrix[i][j] == 0){
+                    matrix[i][0] = 0;
+                
+                    if(j!=0)matrix[0][j]=0;
+                    else col0 = 0;
+                }
+            }
+        }
+      ```
+    - mark the rest of the cells apart from first row and col respectively.
+      ```cpp
+      for(int i = 1;i<n;i++){
+            for(int j=1;j<m;j++){
+                if(matrix[i][j] != 0){
+                    if(matrix[i][0]==0 || matrix[0][j] == 0) matrix[i][j]=0;
+                }
+            }
+        }
+      ```
+    - check for the first cell if its 0 or not.
+     ```cpp
+      if(matrix[0][0] == 0){
+            for(int j=0;j<m;j++){
+                matrix[0][j] = 0; 
+            }
+        }
+     ```
+    - for the 0th col, set vealues in each row as 0.
+      ```cpp
+        if(col0 == 0){
+            for(int i=0;i<n;i++){
+                matrix[i][0] = 0;
+            }
+        }
+      ```
+      Time Complexity: O(2*(n*m))
+      Space Complexity: O(1) 
 </details>
