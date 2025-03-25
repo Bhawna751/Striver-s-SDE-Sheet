@@ -58,8 +58,9 @@
                 if(matrix[i][j] == 0){
                     matrix[i][0] = 0;
                 
-                    if(j!=0)matrix[0][j]=0;
-                    else col0 = 0;
+                    if(j!=0)matrix[0][j]=0;//if j was equal to 0 then it would have tried to set the 0th col as 0 which
+                                              //would have already been set as 0
+                    else col0 = 0;//for the 0th column
                 }
             }
         }
