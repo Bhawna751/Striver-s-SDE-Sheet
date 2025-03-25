@@ -120,3 +120,32 @@
       Time Complexity: O(n*n)
       Space Complexity: O(1) 
 </details>
+
+
+<details>
+  <summary>Next Permutation</summary>
+
+  [Link](https://leetcode.com/problems/next-permutation/)
+  
+  **Optimal:**
+
+  - find out the breakpoint from the right side (n-2 to 0)
+  - the breakpoint will be the first point of decreasing numbers.
+    ```cpp
+      for(int i=n-2;i>=0;i--){
+            if(nums[i+1]>nums[i]){
+                breakpoint = i;
+                break;
+            }
+        }
+    ```
+  - if no breakpoint was found then simply reverse the enitre array and return.
+  - start traversing from the right again till breakpoint found and find the next greater element.
+  - swap the breakpoint value with the next greater element found.
+  - reverse the right half of breakpoint
+    ```cpp
+      reverse(nums.begin()+breakpoint+1,nums.end());
+    ```
+      Time Complexity: O(3N)
+      Space Complexity: O(1) 
+</details>
