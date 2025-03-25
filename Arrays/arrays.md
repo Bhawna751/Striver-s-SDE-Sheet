@@ -149,3 +149,30 @@
       Time Complexity: O(3N)
       Space Complexity: O(1) 
 </details>
+
+
+
+<details>
+  <summary>Maximum Subarray</summary>
+
+  [Link](https://leetcode.com/problems/maximum-subarray/description/)
+  
+  **Optimal:**
+
+  - traverse the array, and sum all the values respectively.
+  - keep track of the maximum sum value
+  - if the current sum ever goes belows 0 then reset sum to 0.
+    ```cpp
+      int maxSubArray(vector<int>& nums) {
+        int maxi=-1e9, n=nums.size(),sum=0;
+        for(int i=0;i<n;i++){
+            sum += nums[i];
+            if(sum > maxi) maxi = sum;
+            if(sum < 0) sum=0;
+        }
+        return maxi;
+    }
+    ```
+      Time Complexity: O(N)
+      Space Complexity: O(1) 
+</details>
