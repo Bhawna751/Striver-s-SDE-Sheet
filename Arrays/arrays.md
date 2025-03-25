@@ -117,6 +117,6 @@
             row.push_back(sum);
         }
       ```
-      Time Complexity: O(2*(n*m))
+      Time Complexity: O(n*n)
       Space Complexity: O(1) 
 </details>
