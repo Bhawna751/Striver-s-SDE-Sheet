@@ -94,3 +94,29 @@
       Time Complexity: O(2*(n*m))
       Space Complexity: O(1) 
 </details>
+
+
+<details>
+  <summary>Pascal's Triangle</summary>
+
+  [Link](https://leetcode.com/problems/pascals-triangle/)
+  
+  **Optimal:**
+
+  - solve using nCr
+  - create rows for each index till `n`.
+  - call generateRows() for each row.
+  - in generateRows(), push the first value always as 1
+  - from col `1` to `n-1` perform the following operations:
+     
+      ```cpp
+        for(int i=1;i<ind;i++){
+            sum *= (ind - i);
+            sum /= i;
+
+            row.push_back(sum);
+        }
+      ```
+      Time Complexity: O(2*(n*m))
+      Space Complexity: O(1) 
+</details>
