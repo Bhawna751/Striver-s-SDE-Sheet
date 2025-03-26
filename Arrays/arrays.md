@@ -204,3 +204,63 @@
       Time Complexity: O(2N)
       Space Complexity: O(1) 
 </details>
+
+
+<details>
+  <summary>Best Time to Buy and Sell Stock</summary>
+
+  [Link](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+
+  -----
+  **Brute: (TLE)**
+
+  - Use a for loop of ‘i’ from 0 to n.
+  - Use another for loop of j from ‘i+1’ to n.
+  - If arr[j] > arr[i] , take the difference and compare  and store it in the maxPro variable.
+  - Return maxPro.
+    <details>
+      <summary>Code:</summary>
+
+      ```cpp
+      int maxProfit(vector<int>& prices) {
+        int n=prices.size(),  ans=0;;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(prices[i] < prices[j]){
+                    ans = max(ans,prices[j]-prices[i]);
+                }
+            }
+        }
+        return ans;
+    }
+    ```
+    </details>
+      Time Complexity: O(N^2)
+      Space Complexity: O(1) 
+
+     -----
+  **Optimal:**
+
+  - Create a variable `maxPro` and `minPrice` and store 0 and max value initially.
+  - Run a for loop from 0 to n.
+  - Update the `minPrice` if it is greater than the current element of the array
+  - Take the difference of the `minPrice` with the current element of the array and compare and maintain it in `maxPro`.
+  - Return the `maxPro`.
+    <details>
+      <summary>Code:</summary>
+
+      ```cpp
+      int maxProfit(vector<int>& prices) {
+        int n=prices.size();
+        int maxi=0, mini=1e9;
+        for(int i=0;i<n;i++){
+            mini = min(mini,prices[i]);
+            maxi = max(maxi,prices[i]-mini);
+        }
+        return maxi;
+    }
+    ```
+    </details>
+      Time Complexity: O(N)
+      Space Complexity: O(1) 
+</details>
