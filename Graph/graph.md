@@ -9,6 +9,6 @@
 - Detect A cycle in a Directed Graph using BFS
 - Topological Sort BFS
 - Topological Sort DFS
-- Number of islands(Do in Grid and Graph Both)
+- [Number of islands(in Grid)](./numOfIslandsGrid.md)
 - Bipartite Check using BFS
 - Bipartite Check using DFS
