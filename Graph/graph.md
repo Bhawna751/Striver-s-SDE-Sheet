@@ -7,8 +7,8 @@
 - [Detect A cycle in Undirected Graph using DFS](./DetectCycleUndirDFS.md)
 - [Detect A cycle in a Directed Graph using DFS](./DetectCycleUndirDFS.md)
 - [Detect A cycle in a Directed Graph using BFS](./DetectCycleUndirBFS.md)
-- Topological Sort BFS
-- Topological Sort DFS
+- [Topological Sort BFS](./topoSortBFS.md)
+- [Topological Sort DFS](./topoSortDFS.md)
 - [Number of islands(in Grid)](./numOfIslandsGrid.md)
 - Bipartite Check using BFS
 - Bipartite Check using DFS
