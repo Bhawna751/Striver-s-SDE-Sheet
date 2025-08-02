@@ -4,7 +4,7 @@
 - [DFS](./dfs.md)
 - [BFS](./bfs.md)
 - [Detect A cycle in Undirected Graph using BFS](./DetectCycleUndirBFS.md)
-- Detect A cycle in Undirected Graph using DFS
+- [Detect A cycle in Undirected Graph using DFS](./DetectCycleUndirDFS.md)
 - Detect A cycle in a Directed Graph using DFS
 - Detect A cycle in a Directed Graph using BFS
 - Topological Sort BFS
