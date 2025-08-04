@@ -1,6 +1,6 @@
 # Graph Part-II
 - [Strongly Connected Component(using KosaRaju's algo)](./strong.md)
-- Dijkstra's Algorithm
+- [Dijkstra's Algorithm](./dijkstra.md)
 - Bellman-Ford Algo
 - Floyd Warshall Algorithm
 - MST using Prim's Algo
