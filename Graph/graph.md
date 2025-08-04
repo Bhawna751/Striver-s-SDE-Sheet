@@ -11,4 +11,4 @@
 - [Topological Sort DFS](./topoSortDFS.md)
 - [Number of islands(in Grid)](./numOfIslandsGrid.md)
 - [Bipartite Check using BFS](./bipartiteBFS.md)
-- Bipartite Check using DFS
+- [Bipartite Check using DFS](./bipartiteDFS.md)
