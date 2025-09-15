@@ -5,4 +5,5 @@
 - [DP](./DP/dp.md)
 - [String](./String/string.md)
 - [Graph](./Graph/graph.md)
-- [Graph Part II](./GraphII/graph2.md) 
+- [Graph Part II](./GraphII/graph2.md)
+- [Day 17 - Binary Tree](./BinaryTree/binaryTree.md)
