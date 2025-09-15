@@ -1,0 +1,5 @@
+- [Diameter of a tree](./diameter.md)
+- [Maximum Path Sum](./maxPathSum.md)
+- [Check for Symmetrical BTs](./symmetrical.md)
+- [Boundary Traversal](./boundary.md)
+- [Vertical Order Traversal](./vertical.md)
