@@ -34,6 +34,8 @@ Time complexity : O(n*n) + O(n*n)
 Space Complexity: O(1)
   </details>
 </details>
+
+
 <details>
   <summary>Merge Intervals</summary>
 
@@ -121,4 +123,76 @@ public:
 Time Complexity:O(n log n)
 Space Complexity:O(n)
 </details>
+</details>
 
+
+
+<details>
+  <summary>Merge Two sorted Arrays</summary>
+
+BRUTE:
+-----
+- declare a third array and two pointers, l and r, l pointing to first index of arr1 and r pointing to first index of arr2.
+- if(arr1[l] < arr2[r] ) arr3.push_back(arr1[l]), l++;
+- if(arr2[r] > arr1[l] ) arr3.push_back(arr2[r]), r++;
+- then for remaining indexes of nums1 or nums2, push the value in arr3
+- copy arr3 to nums1
+
+<details>
+    <summary>Code:</summary>
+
+  ```cpp
+    class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int>merged(m+n);
+        int l=0, r=0, ind=0;
+        while(l<m && r<n){
+            if(nums1[l]<=nums2[r]) merged[ind++] = nums1[l++];
+            else merged[ind++] = nums2[r++];
+        }
+        while(l<m) merged[ind++]=nums1[l++];
+        while(r<n) merged[ind++] = nums2[r++];
+        for(int i=0;i<m+n;i++){
+            nums1[i] = merged[i];
+        }
+    }
+};
+```
+Time Complexity: O(min(N, M)) + O(N logN) + O(M logM)
+</details>
+
+OPTIMAL 1:
+----
+- Start comparing elements from the end of both arrays.
+- Pick the larger element and place it at the current last available position in the first array.
+- Move the pointer of the array from which the element was taken one step back.
+- Repeat this process until all elements from the second array are placed.
+
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i=m-1, j=n-1;
+        int ind = m+n-1;
+        while(j>=0){
+            if(i>=0 && nums1[i]>=nums2[j]){
+                nums1[ind]=nums1[i];
+                i--;
+                ind--;
+            }
+            else {
+                nums1[ind]=nums2[j];
+                j--;
+                ind--;
+            }
+        }
+    }
+};
+```
+</details>
+Time Complexity: O(N+M)
+</details>
