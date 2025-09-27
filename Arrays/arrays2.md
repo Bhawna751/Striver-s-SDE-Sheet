@@ -396,3 +396,97 @@ public:
 
 </details>
 
+
+
+
+<details>
+  <summary>Count Inversion Pairs</summary>
+
+  **Problem:** Given an integer array `nums`. Return the number of inversions in the array. Two elements `a[i]` and `a[j]` form an inversion if `a[i] > a[j]` and `i < j`.
+
+  Brute:
+  -----
+  - iterate from 0 to n-1, select first element of the pair, and inside loop for i, run a loop for j = i+1
+  - if arr[i] > arr[j], increase count by 1.
+
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+   long long int numberOfInversions(vector<int> nums) {
+    int n= nums.size();
+    int cnt=0;
+    for(int i=0;i<n-1;i++){
+        for(int j=i+1;j<n;j++){
+            if(nums[i] > nums[j])cnt++;
+        }
+    }
+    return cnt;
+    }
+};
+```  
+</details>
+Time Complexity: o(N^2)
+
+Optimal:
+-----
+- keep two pointers i and j at the start of the two sorted arrays, if arr1[i] <= arr2[j], i++
+- if(arr1[i] > arr2[j]) cnt = n1-i
+- use merge sort
+
+  <details>
+    <summary>Code:</summary>
+
+```cpp
+    class Solution {
+public:
+    long long int merge(vector<int>&nums, int l, int mid, int r){
+        vector<int> temp;
+        int left = l;
+        int right = mid+1;
+        long long int cnt = 0;
+        while(left<=mid && right <= r){
+            if(nums[left] <= nums[right]){
+                temp.push_back(nums[left]);
+                left++;
+            }
+            else{
+                temp.push_back(nums[right]);
+                cnt += (mid - left +1);
+                right++;
+            }
+        }
+        while(left <= mid){
+            temp.push_back(nums[left++]);
+            
+        }
+        while(right <= r){
+            temp.push_back(nums[right++]);
+            
+        }
+        for(int i=l;i<=r;i++){
+            nums[i]  = temp[i-l];
+        }
+        return cnt;
+    }
+    long long mergeSort(vector<int>&nums, int l, int r){
+        long long int cnt = 0;
+        if(l<r){
+            int mid = (l+r)/2;
+            cnt += mergeSort(nums,l,mid);
+            cnt += mergeSort(nums,mid+1,r);
+            cnt+= merge(nums,l,mid,r);
+        }
+        return cnt;
+    }
+   long long int numberOfInversions(vector<int> nums) {
+        int n=nums.size();
+        return mergeSort(nums, 0, n-1);
+    }
+};
+ ```
+Time Complexity: O(N log N)
+  </details>
+</details>
