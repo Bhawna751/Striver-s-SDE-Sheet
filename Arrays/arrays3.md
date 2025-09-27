@@ -75,3 +75,73 @@ public:
 Time Complexity: O(Log (N*M))
 </details>
 </details>
+
+
+<details>
+  <summary>Implement Pow(X,N)</summary>
+
+  [Link](https://leetcode.com/problems/powx-n/)
+
+  Brute:
+  -----
+- ans =1, Check if (n<0) x = 1/x and make n positive by setting n to -n. 
+- Use a loop to iterate from 0 to n , multiply ans by x.
+
+<details>
+  <summary>Code:</summary>
+
+  ```cpp
+
+class Solution {
+public:
+    double myPow(double x, int n) {
+        double ans=1;
+        if(n<0) {
+            x = 1/x;
+            n = -n;
+        }
+        for(int i=0;i<n;i++){
+            ans *= x;
+
+        }
+        return ans;
+    }
+};
+```
+Time Complexity: O(N)
+</details>
+
+
+Optimal:
+-----
+- recursive function:
+   - Base case: If (n==0) return 1
+   - Base case: If (n==1) return x
+   - if(n%2==0) pow(x*x, n/2);
+   - return x* pow(x,n-1);
+
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+    double power(double x, long long n){
+        if(n==0)return 1.0;
+        if(n==1)return x;
+        if(n%2==0) return power(x*x, n/2);
+        return x*power(x, n-1);
+    }
+    double myPow(double x, int n) {
+        long long num=n;
+        if(num<0){
+            return (1.0/power(x,-num));
+        }
+        return power(x,num);
+    }
+};
+```
+Time Complexity: O(Log N)
+</details>
+</details>
+
