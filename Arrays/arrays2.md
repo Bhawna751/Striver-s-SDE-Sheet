@@ -259,4 +259,36 @@ public:
 Time complexity : O(n)
 Space Complexity: O(n)
   </details>
+
+Optimal 2:
+-----
+- using tortoise and hare method in linked list
+- if a cycle is detected it means a duplicate number is found
+- return slow
+
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = nums[0];//slow = 1
+        int fast = nums[0];//fast =1
+        do{
+            slow = nums[slow];//slow = 2
+            fast = nums[nums[fast]];//fast = 4
+
+        }while(slow!=fast);
+        fast = nums[0];//fast = 1
+        while(slow!=fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+};
+```
+</details>
+
 </details>
