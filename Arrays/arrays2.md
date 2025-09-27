@@ -196,3 +196,67 @@ public:
 </details>
 Time Complexity: O(N+M)
 </details>
+
+<details>
+  <summary>Find the Repeated Number</summary>
+
+  [Link](https://leetcode.com/problems/find-the-duplicate-number/)
+
+  Brute:
+  ----
+  - sort the array
+  - check if(arr[i+1] == arr[i)
+
+  <details>
+    <summary>Code:</summary>
+
+  ```cpp
+  class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==nums[i+1]){
+                ans = nums[i];
+                break;
+            }
+        }
+        return ans;
+    }
+};
+  ```
+  </details>
+  
+  Optimal:
+  ----
+
+  - use a frequency array
+
+  <details>
+    <summary>code:</summary>
+
+  ```cpp
+  class Solution {
+    public:
+    int findDuplicate(vector<int>& nums) {
+        int n=nums.size();
+        int ans;
+        vector<int>freq(n+1,0);
+        for(int it:nums){
+            freq[it]++;
+        }
+        for(int i=0;i<=n;i++){
+            if(freq[i]>1){
+                ans=i;
+                break;
+            }
+        }
+        return ans;
+    }
+};
+   ```
+Time complexity : O(n)
+Space Complexity: O(n)
+  </details>
+</details>
