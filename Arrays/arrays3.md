@@ -395,7 +395,7 @@ public:
     }
 };
 ```
-  </details>
+</details>
 
 Tabulation:
 ------
