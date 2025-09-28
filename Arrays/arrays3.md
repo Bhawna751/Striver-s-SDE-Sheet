@@ -145,3 +145,94 @@ Time Complexity: O(Log N)
 </details>
 </details>
 
+
+<details>
+  <summary>Majority Element</summary>
+
+  [Link](https://leetcode.com/problems/majority-element/)
+
+  Brute:
+  -----
+- Iterate over each element in the array one by one.
+- for each element, run another loop and count its occurrence in the given array.
+- If any element occurs more than the floor of (N/2), simply return it.
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            int cnt =0;
+            for(int j=0;j<n;j++){
+                if(nums[i]==nums[j])cnt++;
+            }
+            if(cnt > n/2)return nums[i];
+        }
+        return -1;
+    }
+};
+```
+</details>
+
+Better:
+-----
+- use a hashmap
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        unordered_map<int,int>mpp;
+        for(int i=0;i<n;i++){
+            mpp[nums[i]]++;
+        }
+        for(auto it:mpp){
+            if(it.second > n/2)return it.first;
+        }
+        return -1;
+    }
+};
+```
+</details>
+Time Complexity: O(N)
+
+Optimal:
+-----
+- `cnt` for tracking the count of elements and `ele` for keeping a track of the element we are counting.
+- Traverse through the given array. If (cnt==0) then ele=nums[i] .
+- If (nums[i]==ele)cnt++, else cnt--
+- return ele
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        int cnt=0, ele;
+        for(int i=0;i<n;i++){
+            if(cnt==0){
+                ele=nums[i];
+                cnt=1;
+            }
+            else if(nums[i]==ele){
+                cnt++;
+            }
+            else cnt--;
+
+        }
+        
+        return ele;
+    }
+};
+```
+Time Complexity:O(N)
+</details>
+</details>
