@@ -462,3 +462,82 @@ public:
 };
 ```
 </details>
+</details>
+
+
+
+<details>
+  <summary>Reverse Pairs</summary>
+
+  [Link](https://leetcode.com/problems/reverse-pairs/)
+
+  Brute:
+  -----
+  - traverse the array, i = 0 to n, and j = i+1 to n
+  - if(arr[i] > 2*arr[j])cnt++
+
+<details>
+  <summary>Code:</summary>
+
+```cpp
+class Solution {
+public:
+    int reversePairs(vector<int>& nums) {
+        int n=nums.size();
+        int ans=0;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(nums[i] > 2*nums[j]) ans++;
+            }
+        }
+        return ans;
+    }
+};
+```
+</details>
+
+Optimal:
+-----
+- use modified mergeSort
+
+```cpp
+class Solution {
+public:
+    int mergeSort(vector<int>&nums, int l, int r){
+        if(l>=r)return 0;
+        int mid = (l+r)/2;
+        int cnt=0;
+        cnt += mergeSort(nums,l,mid);
+        cnt += mergeSort(nums,mid+1,r);
+        cnt += countPairs(nums,l,mid,r);
+        merge(nums,l,mid,r);
+        return cnt;
+    }
+    void merge(vector<int>&nums, int l, int mid, int r){
+        vector<int>temp;
+        int left = l, right = mid+1;
+        while(left <= mid && right <=r){
+            if(nums[left]<=nums[right])temp.push_back(nums[left++]);
+            else temp.push_back(nums[right++]);
+        }
+        while(left<=mid)temp.push_back(nums[left++]);
+        while(right<=r)temp.push_back(nums[right++]);
+        for(int i=l;i<=r;i++) nums[i]=temp[i-l];
+    }
+    int reversePairs(vector<int>& nums) {
+        return mergeSort(nums,0,nums.size()-1);
+    }
+    int countPairs(vector<int>&nums, int low, int mid, int high){
+        int r = mid+1;
+        int cnt=0;
+        for(int i=low;i<=mid;i++){
+            while(r <= high && (long long)nums[i] > 2LL * nums[r]){
+                r++;
+            }
+            cnt += (r-(mid+1));
+        }
+        return cnt;
+    }
+};
+```
+</details>
