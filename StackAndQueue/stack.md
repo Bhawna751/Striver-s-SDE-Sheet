@@ -155,3 +155,74 @@ public:
 ```
   </details>  
   
+<details>
+  <summary>Largest Rectangle in Histogram</summary>
+
+  [Link](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
+  
+-----
+  **Brute:**
+  - calculate area of all possible rectangles using nested loops
+  - return the maxium one
+```cpp
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        int maxarea =0;
+        for(int i=0;i<heights.size();i++){
+            int minH = 1e9;
+            for(int j=i;j<heights.size();j++){
+                minH = min(minH, heights[j]);
+                int width = j-i+1;
+                int area = width * minH;
+                maxarea = max(maxarea,area );
+            }
+        }
+        return maxarea;
+    }
+};
+```
+
+   **Optimal:**
+
+  - need to find next smaller elements and previous smaller elements for each height and store the indexes in two arrays `pse` and `nse`.
+  - iterate heights and if `!st.empty()` and top element is larger then keep popping
+  - if stack is empty then pse[i] = 0 else pse[i] = st.top
+  - st.push(i)
+  - now clear the whole stack to calculate nse
+  - same logic as pse just traverse from right to left
+  - width  = nse[i]-pse[i]+1
+  - area = heights[i]*width
+   
+ ```cpp
+ class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        int n =heights.size();
+        vector<int> pse(n), nse(n);
+        stack<int> st;
+        for(int i=0;i<n;i++){
+            while(!st.empty() && heights[st.top()] >= heights[i]){
+                st.pop();
+            }
+            pse[i] = st.empty()  ? 0 : st.top()+1;
+            st.push(i);
+        }
+        while(!st.empty()) st.pop();
+        for(int i=n-1;i>=0;i--){
+            while(!st.empty() && heights[st.top()] >= heights[i]) st.pop();
+            nse[i] = st.empty() ? n-1:st.top()-1;
+            st.push(i);
+        }
+        int ans=0;
+        for(int i=0;i<n;i++){
+            int width = nse[i]-pse[i]+1;
+            ans = max(ans,width*heights[i]);
+        }
+        return ans;
+
+    }
+};
+```
+    
+</details>  
