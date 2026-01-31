@@ -54,9 +54,9 @@ public:
 
 
 <details>
-  <summary>Implement Stack using Queues</summary>
+  <summary>Implement Queue using Stacks</summary>
 
-  [Link](https://leetcode.com/problems/implement-stack-using-queues/)
+  [Link](\https://leetcode.com/problems/implement-queue-using-stacks/)
   
 -----
 
