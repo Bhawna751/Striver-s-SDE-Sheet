@@ -226,3 +226,39 @@ public:
 ```
     
 </details>  
+
+
+
+<details>
+  <summary>Sliding Window Maximum</summary>
+
+  [Link](https://leetcode.com/problems/sliding-window-maximum/description/)
+  
+-----
+
+   **Optimal:**
+
+  - keep a deque, traverse array k ind
+  - while the deque is not empty and the ind at the end is less than current element,keep popping
+  - then add current ind to the end of dq
+  - this way u will have a deque with the elements greater than current element in increasing order from the RIGHT [last] this means whenever you look at the last element of dq, u will have an element greater than current element and at the front will have the largest element in the window
+  - and while going forward, if the first element of dq is smaller than the first index of window, remove it as that index is out of range
+
+ ```cpp
+ class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> ans;
+        deque<int>dq;
+        for(int i=0;i<nums.size();i++){
+            if(!dq.empty() && dq.front() <= i-k) dq.pop_front();
+            while(!dq.empty() && nums[dq.back()] <= nums[i])dq.pop_back();
+            dq.push_back(i);
+            if(i>=k-1)ans.push_back(nums[dq.front()]);
+        }
+        return ans;
+    }
+};
+```
+    
+</details>  
