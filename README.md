@@ -4,7 +4,7 @@
 - [Arrays II](./Arrays/arrays2.md)
 - [Arrays III_](./Arrays/arrays3.md)
 - [Arrays IV](./Arrays/arrays4.md)
-- [Stack](./Stack/stack.md)
+- [Stack And Queue](./StackAndQueue/stack.md)
 - [DP](./DP/dp.md)
 - [String](./String/string.md)
 - [Graph](./Graph/graph.md)
