@@ -1,4 +1,59 @@
 <details>
+  <summary>Implement Stack using Queues</summary>
+
+  [Link](https://leetcode.com/problems/implement-stack-using-queues/)
+  
+-----
+
+   **Optimal:**
+
+  - use two queues,
+  - for adding, add elements to the q2
+      - while q1 is not epmpty, keep copying the elements to q2 and poppping from q1
+      - swap q1 and q2
+  - for popping:
+      -  store int at top,
+      -  pop from q1 then return stored value
+  - for top = q1.front()
+  - for empty() = q1.empty()
+ ```cpp
+ class MyStack {
+public:
+    queue<int>q1;
+    queue<int>q2;
+    MyStack() {
+        
+    }
+    
+    void push(int x) {
+        q2.push(x);
+        while(!q1.empty()){
+            q2.push(q1.front());
+            q1.pop();
+        }
+        swap(q1,q2);
+    }
+    
+    int pop() {
+        int ans = top();
+        q1.pop();
+        return ans;
+    }
+    
+    int top() {
+        return q1.front();
+    }
+    
+    bool empty() {
+        return q1.empty();
+    }
+};
+```
+    
+</details>  
+
+
+<details>
   <summary>Next Greater Element I</summary>
 
   [Link](https://leetcode.com/problems/next-greater-element-i/)
@@ -37,5 +92,5 @@
     }
 }
 ```
-    
+  </details>  
   
