@@ -54,6 +54,67 @@ public:
 
 
 <details>
+  <summary>Implement Stack using Queues</summary>
+
+  [Link](https://leetcode.com/problems/implement-stack-using-queues/)
+  
+-----
+
+   **Optimal:**
+
+  - use two stacks,in and out
+  - for adding, add elements to `in`
+  - for popping:
+      - call `peek()`  
+      -  store val at top of `out`,
+      -  pop from `out` then return stored value
+  - for `peek()`:
+      - if `out` is empty
+          - while `in` is not empty
+          - push top of `in` to `out`
+          - pop `in`
+      - return `out.top()`
+  - for empty() return true if both stacks are empty.
+ ```cpp
+ class MyQueue {
+public:
+    stack<int>in,out;
+    
+    MyQueue() {
+        
+    }
+    
+    void push(int x) {
+        in.push(x);
+    }
+    
+    int pop() {
+        peek();
+        int val = out.top();
+        out.pop();
+        return val;
+    }
+    
+    int peek() {
+        if(out.empty()){
+            while(!in.empty()){
+                out.push(in.top());
+                in.pop();
+            }
+        }
+        return out.top();
+    }
+    
+    bool empty() {
+        return in.empty() && out.empty();
+    }
+};
+```
+    
+</details>  
+
+
+<details>
   <summary>Next Greater Element I</summary>
 
   [Link](https://leetcode.com/problems/next-greater-element-i/)
